@@ -1,0 +1,52 @@
+// Montaje 2: Semáforo
+// Código revisado para Arduinopasoapaso
+ 
+// Estructura del programa:
+ 
+// 1.- Bibliotecas (libraries)
+ 
+// 2.- Definición de variables
+ 
+int rojo = 3; // Se define el pin 3 con la palabra rojo
+int amarillo = 4; // Se define el pin 4 con la palabra amarillo
+int verde = 5; // Se define el pin 5 con la palabra verde
+                       
+// 3.- Bucle inicial (setup) 
+ 
+void setup()
+{
+ 
+pinMode(rojo, OUTPUT); // Se declara el pin 3 como salida
+pinMode(amarillo, OUTPUT);// Se declara el pin 4 como salida
+pinMode(verde, OUTPUT); // Se declara el pin 5 como salida
+ 
+Serial.begin(9600); // Se inicia el monitor serial
+}
+ 
+// 4.- Núcleo del programa
+ 
+void loop()
+{
+Serial.println("Inicio del ciclo"); // Registra el inicio
+digitalWrite(verde, HIGH); // Enciende el led verde
+Serial.println("En Verde"); // Registra la acción en el monitor
+ 
+delay(6000); //Mantiene 6 segundos el verde encendido
+ 
+digitalWrite(verde, LOW); // Apaga el led verde
+digitalWrite(amarillo, HIGH); // Enciende el led amarillo
+Serial.println("En Amarillo"); // Registra la acción en el monitor
+ 
+delay(3000); //Mantiene 3 segundos el amarillo encendido
+ 
+digitalWrite(amarillo, LOW); // Apaga el led amarillo
+digitalWrite(rojo, HIGH); // Enciende el led rojo
+Serial.println("En Rojo"); // Registra la acción en el monitor
+ 
+delay(5000); //Mantiene 5 segundos el rojo encendido
+ 
+digitalWrite(rojo, LOW); // Apaga el led rojo
+Serial.println("Fin del ciclo"); // Registra el fin
+}
+ 
+/* Fín del código */
